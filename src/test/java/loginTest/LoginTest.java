@@ -1,24 +1,34 @@
 package loginTest;
 
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class LoginTest {
-    @Test
-    public void validLogIn(){
+
+    WebDriver webDriver;
+    @Before
+    public void setUp(){
         File file = new File("./src/drivers/chromedriver1.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 
-        WebDriver webDriver = new ChromeDriver();
+        webDriver = new ChromeDriver();
 
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
+    @Test
+    public void validLogIn(){
+
 
         webDriver.get("https://medizine.eu/");
 
@@ -31,12 +41,16 @@ public class LoginTest {
 
         webDriver.findElement(By.xpath(".//button[@name='login']")).click();
 
-        Assert.assertTrue("User-info is not present",webDriver.findElement
-                (By.xpath(".//div[@class='user-info']")).isDisplayed());
+        HomePage homePage = new HomePage(webDriver);
 
-        webDriver.quit();
-
+        Assert.assertTrue("User-info is not present",homePage.IsUserInfoPresent());
 
 
     }
+
+    @After
+    public void tearDown(){
+        webDriver.quit();
+    }
+
 }
