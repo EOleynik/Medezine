@@ -5,15 +5,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.element.Link;
+import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 import java.util.logging.Logger;
 
 public class HomePage extends ParentPage{
 
     @FindBy(xpath = ".//a[@href='/my-account/orders/' and @class='menu-link']")
-    private WebElement MoyAccaunt;
+    private Link moyAccaunt;
     @FindBy(xpath = ".//div[@id='site-logo-inner']")
     private WebElement logotype;
+    @FindBy(xpath = ".//li[@id='menu-item-3315']")
+    private Link katalog;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver,"");
@@ -30,11 +34,15 @@ public class HomePage extends ParentPage{
     }
 
     public void clickOnLinkMoyAccaunt() {
-    workWithOurElements.clickOnElement(MoyAccaunt);
+    workWithOurElements.clickOnElement(moyAccaunt);
     }
 
-    public boolean isLogotypePresen() {
+    public boolean isLogotypeDisplayed() {
         return workWithOurElements.isElementDisplayed(logotype);
+    }
+
+    public void clickOnLinkKatalog() {
+        workWithOurElements.clickOnElement(katalog);
     }
 }
 
