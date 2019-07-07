@@ -3,21 +3,23 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.element.Button;
+import ru.yandex.qatools.htmlelements.element.TextInput;
 
 public class MyAccountPage extends ParentPage {
 
     @FindBy(xpath = ".//input[@id='username']")
-    private WebElement InputUserName;
+    private TextInput InputUserName;
     @FindBy(xpath = ".//input[@id='password']")
-    private WebElement InputPass;
+    private TextInput InputPass;
     @FindBy(xpath = ".//button[@name='login']")
-    private WebElement ButtonVoiti;
+    private Button ButtonVoiti;
     @FindBy(xpath = ".//div[@class='user-info']")
     private WebElement userInfo;
     @FindBy(xpath = ".//input[@id='reg_email']")
-    private WebElement InputEmail;
+    private TextInput InputEmail;
     @FindBy(xpath = ".//button[@name='register']")
-    private WebElement buttonRegistrasiia;
+    private Button buttonRegistrasiia;
 
     public MyAccountPage(WebDriver webDriver) {
         super(webDriver, "my-account/orders/");
