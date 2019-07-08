@@ -12,11 +12,12 @@ public class ProductFilters extends ParentTest {
         homePage.clickOnLinkKatalog();
 
         storePage.checkCurrentUrl();
+        storePage.mouseDown();
         storePage.selectNameBrandFromDropDown("Дефлю");
 
-        brendDefluPage.checkCurrentUrl();
+        brandDefluPage.checkCurrentUrl();
 
-        checkExpectedResult("",true,brendDefluPage.isLogotypeDisplayed());
+        checkExpectedResult("",true,brandDefluPage.isLogotypeDisplayed());
     }
 
 }
