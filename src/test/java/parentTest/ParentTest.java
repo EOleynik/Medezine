@@ -5,10 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.BrandDefluPage;
-import pages.HomePage;
-import pages.MyAccountPage;
-import pages.StorePage;
+import pages.*;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -18,7 +15,9 @@ public class ParentTest {
     protected HomePage homePage;
     protected MyAccountPage myAccountPage;
     protected StorePage storePage;
-    protected BrandDefluPage brendDefluPage;
+    protected BrandDefluPage brandDefluPage;
+    protected CartPage cartPage;
+
 
     @Before
     public void setUp(){
@@ -33,7 +32,8 @@ public class ParentTest {
         homePage = new HomePage(webDriver);
         myAccountPage = new MyAccountPage(webDriver);
         storePage = new StorePage(webDriver);
-        brendDefluPage = new BrandDefluPage(webDriver);
+        brandDefluPage = new BrandDefluPage(webDriver);
+        cartPage = new CartPage(webDriver);
     }
 
     @After
