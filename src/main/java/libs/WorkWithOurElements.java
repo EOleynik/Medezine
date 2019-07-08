@@ -71,4 +71,15 @@ public class WorkWithOurElements {
         clickOnElement(dropDown);
         clickOnElement(".//option[@value='https://medizine.eu/brands/deflu/']");
     }
+
+    public void enterTextToInputWithReturn(TypifiedElement element, String text) {
+        try{
+            element.clear();
+            element.sendKeys(text + "\n");
+            loger.info(text + " was inputted into" + " " + element.getName());
+        }catch(Exception e){
+            loger.error("Can not work with element");
+            Assert.fail("Can not work with element");
+        }
+    }
 }
