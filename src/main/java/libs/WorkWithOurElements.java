@@ -3,6 +3,7 @@ package libs;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -75,7 +76,8 @@ public class WorkWithOurElements {
     public void enterTextToInputWithReturn(TypifiedElement element, String text) {
         try{
             element.clear();
-            element.sendKeys(text + "\n");
+            element.sendKeys(text);
+            element.sendKeys(Keys.ENTER);
             loger.info(text + " was inputted into" + " " + element.getName());
         }catch(Exception e){
             loger.error("Can not work with element");
