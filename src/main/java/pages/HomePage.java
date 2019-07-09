@@ -70,5 +70,11 @@ public class HomePage extends ParentPage{
     public void enterTextInToInputPoisk(String text) {
         workWithOurElements.enterTextToInputWithReturn(inputPoisk, text);
     }
+
+    public void checkStatusCart() {
+            workWithOurElements.clickOnElement(korzina);
+            CartPage cartPage = new CartPage(webDriver);
+            Assert.assertTrue("Cart is not empty",cartPage.isNoticeDisplayed());
+    }
 }
 
