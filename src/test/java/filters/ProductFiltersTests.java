@@ -3,7 +3,7 @@ package filters;
 import org.junit.Test;
 import parentTest.ParentTest;
 
-public class ProductFilters extends ParentTest {
+public class ProductFiltersTests extends ParentTest {
 
     @Test
     public void productFilterByBrand(){
@@ -12,7 +12,7 @@ public class ProductFilters extends ParentTest {
         homePage.clickOnLinkKatalog();
 
         storePage.checkCurrentUrl();
-        storePage.mouseDown();
+        storePage.scrollDown(500);
         storePage.selectNameBrandFromDropDown("Дефлю");
 
         brandDefluPage.checkCurrentUrl();
