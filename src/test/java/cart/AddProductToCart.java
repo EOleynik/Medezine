@@ -16,4 +16,19 @@ public class AddProductToCart extends ParentTest {
 
         checkExpectedResult("",true,cartPage.isProductDisplayed());
     }
+
+    @Test
+
+    public void addProductToEmptyCart() {
+        homePage.openPage();
+        homePage.checkCurrentUrl();
+        homePage.checkStatusCart();
+        homePage.clickOnIconPoisk();
+        homePage.enterTextInToInputPoisk("Детоксил");
+        storePage.clickOnButtonVkorziny();
+        storePage.clickOnLinkProsmotrKorzıny();
+
+    }
+
+
 }
