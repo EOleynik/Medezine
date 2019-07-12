@@ -1,13 +1,14 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.*;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.Link;
 import ru.yandex.qatools.htmlelements.element.TextBlock;
+import ru.yandex.qatools.htmlelements.element.TypifiedElement;
+
+import javax.lang.model.element.Element;
 
 public class StorePage extends ParentPage {
 
@@ -27,13 +28,12 @@ public class StorePage extends ParentPage {
 
     }
 
-    public void mouseDown() {
-        Locatable mouseDownItem = (Locatable) webDriver.findElement
-                (By.xpath("//*[@id='ocean_social-2']"));
+//    public void ScrollByVisibleElement() {
+//    JavascriptExecutor js = (JavascriptExecutor) webDriver;
+//    brands = (TextBlock) webDriver.findElement (By.xpath("//*[@id='pwb_dropdown_widget-2']"));
+//    js.executeScript ("arguments [0] .scrollIntoView ();", brands);
+//}
 
-        Mouse mouse = ((HasInputDevices) webDriver).getMouse();
-        mouse.mouseDown(mouseDownItem.getCoordinates());
-    }
 
     public void clickOnButtonVkorziny() {
         workWithOurElements.clickOnElement(buttonVkorziny);
@@ -41,5 +41,9 @@ public class StorePage extends ParentPage {
 
     public void clickOnLinkProsmotrKorzıny() {
         workWithOurElements.clickOnElement(prosmotrKorzıny);
+    }
+
+    public void scrollDown(Integer pix) {
+        workWithOurElements.ScrollByPixel(500);
     }
 }
