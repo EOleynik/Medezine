@@ -16,7 +16,7 @@ abstract public class ParentPage {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
     WorkWithOurElements workWithOurElements;
-    protected static ConfigProperties configProperties =
+    public static ConfigProperties configProperties =
         ConfigFactory.create(ConfigProperties.class);
     String baseUrl;
     String expectedUrl;
