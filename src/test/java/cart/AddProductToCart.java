@@ -7,8 +7,7 @@ public class AddProductToCart extends ParentTest {
 
     @Test
     public void addProductToCart(){
-        homePage.openPage();
-        homePage.checkCurrentUrl();
+        homePage.openPageWithCheckUrl();
         homePage.clickOnIconPoisk();
         homePage.enterTextInToInputPoisk("Детоксил");
         storePage.clickOnButtonVkorziny();
@@ -20,14 +19,16 @@ public class AddProductToCart extends ParentTest {
     @Test
 
     public void addProductToEmptyCart() {
-        homePage.openPage();
-        homePage.checkCurrentUrl();
+        homePage.openPageWithCheckUrl();
         homePage.checkStatusCart();
-        homePage.clickOnIconPoisk();
+        homePage.clickOnIconPoisk();  // мы остаемся на страничке Cart
         homePage.enterTextInToInputPoisk("Детоксил");
+
+
         storePage.clickOnButtonVkorziny();
         storePage.clickOnLinkProsmotrKorzıny();
 
+        checkExpectedResult("",true,cartPage.isProductDisplayed());
     }
 
 
