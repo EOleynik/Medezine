@@ -45,4 +45,16 @@ public class ParentTest {
         Assert.assertEquals(message,expectedResult,actualResult);
     }
 
+    public void checkExpectedResult(String message, String expectedResult, String actualResult){
+        Assert.assertEquals(message,expectedResult,actualResult);
+    }
+
+    public void checkExpectedResult(String message,Double expectedResult,Double actualResult){
+        Assert.assertEquals(message,expectedResult,actualResult);
+    }
+
+    public void checkExpectedResult (String message, boolean getPrice){
+        Assert.assertTrue(message, getPrice);
+    }
+
 }
