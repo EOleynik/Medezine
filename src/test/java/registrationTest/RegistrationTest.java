@@ -7,8 +7,7 @@ public class RegistrationTest extends ParentTest {
 
     @Test
     public void validRegistration (){
-        homePage.openPage();
-        homePage.checkCurrentUrl();
+        homePage.openPageWithCheckUrl();
         homePage.clickOnLinkMoyAccaunt();
 
         myAccountPage.checkCurrentUrl();
