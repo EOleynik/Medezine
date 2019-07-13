@@ -18,7 +18,7 @@ public class UnvalidLoginWithParams extends ParentTest {
         this.pass = pass;
     }
 
-    @Parameterized.Parameters(name = "Parametrs are {0} and {2}")
+    @Parameterized.Parameters(name = "Parametrs are {0} and {1}")
     public static Collection testData(){
         return Arrays.asList(new Object [][]{
                 {"avtotest","avtotest"},
@@ -28,11 +28,12 @@ public class UnvalidLoginWithParams extends ParentTest {
     }
 
     @Test
-    public void unvalidLogin (){
-        myAccountPage.loginWithCred(userName,pass);
+    public void unvalidLogin() {
+        myAccountPage.loginWithCred(userName, pass);
 
-        checkExpectedResult("User info should not be present",
-                false,myAccountPage.IsUserInfoPresent());
+        checkExpectedResult("Avatar should not be present"
+                , false
+                , myAccountPage.IsUserInfoPresent());
     }
 
 }
