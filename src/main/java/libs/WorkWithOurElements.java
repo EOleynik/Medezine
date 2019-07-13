@@ -3,13 +3,7 @@ package libs;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import ru.yandex.qatools.htmlelements.element.Link;
-import ru.yandex.qatools.htmlelements.element.TextBlock;
 import ru.yandex.qatools.htmlelements.element.TypifiedElement;
-
-import static sun.plugin.javascript.navig.JSType.Element;
 
 public class WorkWithOurElements {
     WebDriver webDriver;
@@ -68,9 +62,9 @@ public class WorkWithOurElements {
         }
     }
 
-    public void selectTextInDropDown(TypifiedElement dropDown, String text) {
+    public void selectTextInDropDown(TypifiedElement dropDown, String nameBrand) {
         clickOnElement(dropDown);
-        clickOnElement(".//option[contains(text(),'"+text+"')]");
+        clickOnElement(".//option[contains(text(),'"+nameBrand+"')]");
     }
 
     public void enterTextToInputWithReturn(TypifiedElement element, String text) {
@@ -89,4 +83,5 @@ public class WorkWithOurElements {
         JavascriptExecutor js = (JavascriptExecutor) webDriver;
         js.executeScript("window.scrollBy (0," + pix + ")");
     }
+
 }
