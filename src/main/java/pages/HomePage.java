@@ -11,6 +11,7 @@ import ru.yandex.qatools.htmlelements.element.TextBlock;
 import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 public class HomePage extends ParentPage{
 
@@ -31,16 +32,6 @@ public class HomePage extends ParentPage{
 
     public HomePage(WebDriver webDriver) {
         super(webDriver,"");
-    }
-
-    public void openPage() {
-        try {
-            webDriver.get("https://medizine.eu");
-            logger.info("HomePage was opened");
-        } catch (Exception e) {
-            logger.error("Can not open HomePage");
-            Assert.fail("Can not open HomePage");
-        }
     }
 
     public void clickOnLinkMoyAccaunt() {
@@ -74,7 +65,24 @@ public class HomePage extends ParentPage{
     public void checkStatusCart() {
             workWithOurElements.clickOnElement(korzina);
             CartPage cartPage = new CartPage(webDriver);
+            cartPage.checkCurrentUrl();
             Assert.assertTrue("Cart is not empty",cartPage.isNoticeDisplayed());
+    }
+
+    public void openPageWithCheckUrl() {
+        try{
+            webDriver.get("https://medizine.eu");
+            logger.info("HomePage was opened");
+            logger.info(expectedUrl);
+            logger.info(webDriver.getCurrentUrl());
+            Assert.assertEquals("",
+                    Pattern.matches(expectedUrl,webDriver.getCurrentUrl()),true);
+        }catch (Exception e) {
+                logger.error("Can not open HomePage");
+                Assert.fail("Can not open HomePage");
+            logger.error("Can not get url" + e);
+            Assert.fail("Can not get url");
+        }
     }
 }
 
