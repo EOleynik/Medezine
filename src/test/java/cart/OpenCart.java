@@ -6,9 +6,8 @@ import parentTest.ParentTest;
 public class OpenCart extends ParentTest {
 
     @Test
-    public void openingEmptyCart(){
-        homePage.openPage();
-        homePage.checkCurrentUrl();
+    public void openCart(){
+        homePage.openPageWithCheckUrl();
         homePage.clickOnLinkKorzına();
 
         cartPage.checkCurrentUrl();
