@@ -53,8 +53,7 @@ public class MyAccountPage extends ParentPage {
         HomePage homePage = new HomePage(webDriver);
         MyAccountPage myAccountPage = new MyAccountPage(webDriver);
 
-        homePage.openPage();
-        homePage.checkCurrentUrl();
+        homePage.openPageWithCheckUrl();
         homePage.clickOnLinkMoyAccaunt();
 
         myAccountPage.checkCurrentUrl();
