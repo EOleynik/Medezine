@@ -17,11 +17,12 @@ public class ProductFiltersTests extends ParentTest {
 
         brandDefluPage.checkCurrentUrl();
 
-        checkExpectedResult("",true,brandDefluPage.isLogotypeDisplayed());
+        checkExpectedResult("Brand logo is not displayed",true,
+                brandDefluPage.isLogotypeDisplayed());
     }
 
     @Test
-    public void productFilterByBrandAndPrice(){
+    public void productFilterByBrandAndPrice() {
         homePage.openPageWithCheckUrl();
         homePage.clickOnLinkKatalog();
 
@@ -30,14 +31,14 @@ public class ProductFiltersTests extends ParentTest {
         storePage.selectNameBrandFromDropDown("Дефлю");
         storePage.scrollDown(50);
         storePage.clickOnElementToolbarFiltr();
-//      storePage.scrollByVisibleElementFıltrPoTsene();
+//      storePage.scrollByVisibleElementFıltrPoTsene(); // это я верну когда уберут рекламу (после 22.07)
         storePage.enterTextInToInputOt("100");
         storePage.enterTextInToInputDo("120");
         storePage.clickOnButtonPrimenit();
 
-        checkExpectedResult("Product of another brand","Дефлю",
-                storePage.getNameBrand());
-        checkExpectedResult("Error",107.50 ,storePage.getPrice());
+       checkExpectedResult("Product of another brand","Дефлю",
+               storePage.getNameBrand());
+       checkExpectedResult("Price of goods outside the specified range",storePage.checkPrice("100","120"));
     }
 
 
