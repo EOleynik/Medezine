@@ -7,9 +7,9 @@ public class OpenHomePageTest extends ParentTest {
 
     @Test
     public void openHomePage(){
-       homePage.openPage();
+       homePage.openPageWithCheckUrl();
 
        checkExpectedResult("Can not open Home page",
-               true,homePage.isLogotypePresen());
+               true,homePage.isLogotypeDisplayed());
     }
 }

@@ -1,0 +1,98 @@
+package pages;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.*;
+
+import static jdk.nashorn.internal.objects.NativeString.substring;
+
+public class StorePage extends ParentPage {
+
+    @FindBy(xpath = "//*[@id='pwb_dropdown_widget-2']")
+    private TextBlock brands;
+    @FindBy(xpath = ".//button[@class='single_add_to_cart_button button alt']")
+    private Button buttonVkorziny;
+    @Name("prosmotrKorzıny")
+    @FindBy(xpath = ".//a[@class='added_to_cart wc-forward']")
+    private Link prosmotrKorzıny;
+    @FindBy(xpath = ".//a[@class='oceanwp-off-canvas-filter']")
+    private Link filtr;
+    @FindBy(xpath = ".//input[@value='deflu']")
+    private CheckBox deflu;
+    @FindBy(xpath = ".//h4[text()='Фильтр по цене']")
+    private WebElement fıltrPoTsene;
+    @FindBy(xpath = ".//input[@id='product-search-filter-min-price-0']")
+    private TextBlock inputOt;
+    @FindBy(xpath = ".//input[@id='product-search-filter-max-price-0']")
+    private TextBlock inputDo;
+    @FindBy(xpath = ".//button[@class='button']")
+    private Button buttonPrimenit;
+
+    public StorePage(WebDriver webDriver) {
+        super(webDriver, "store/");
+    }
+
+    public void selectNameBrandFromDropDown(String nameBrand) {
+    workWithOurElements.selectTextInDropDown(brands,nameBrand);
+    }
+
+    public void clickOnButtonVkorziny() {
+        workWithOurElements.clickOnElement(buttonVkorziny);
+    }
+
+    public void clickOnLinkProsmotrKorzıny() {
+        workWithOurElements.clickOnElement(prosmotrKorzıny);
+    }
+
+    public void scrollDown(Integer pix) {
+        workWithOurElements.ScrollByPixel(pix);
+    }
+
+    public void clickOnElementToolbarFiltr() {
+        workWithOurElements.clickOnElement(filtr);
+    }
+
+    public void scrollByVisibleElementFıltrPoTsene() {
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+        fıltrPoTsene = (WebElement) webDriver.findElement (By.xpath(".//button[text()='Применить фильтр']"));
+        js.executeScript ("arguments [0] .scrollIntoView ();", fıltrPoTsene);
+    }
+
+    public void enterTextInToInputOt(String value1) {
+        workWithOurElements.enterTextToInput(inputOt,value1);
+    }
+
+    public void enterTextInToInputDo(String value2) {
+        workWithOurElements.enterTextToInput(inputDo,value2);
+    }
+
+    public void clickOnButtonPrimenit() {
+        workWithOurElements.clickOnElement(buttonPrimenit);
+    }
+
+    public String getNameBrand() {
+        return (webDriver.findElement
+                (By.xpath(".//a[contains(text(),'Дефлю')]")
+                ).getText().substring(0,5));
+    }
+
+    public boolean checkPrice( String value1, String value2) {
+        if (Double.parseDouble(webDriver.findElement
+                (By.xpath(".//ul[@class='woo-entry-inner clr']/li[@class='inner']/span")
+                ).getText().substring(0, 6)) > Double.parseDouble(value1)) {
+            if (Double.parseDouble(webDriver.findElement
+                    (By.xpath(".//ul[@class='woo-entry-inner clr']/li[@class='inner']/span")
+                    ).getText().substring(0, 6)) < Double.parseDouble(value2)) {
+                return true;
+            }
+        }return false;
+    }
+
+    public double getPrice() {
+       return (Double.parseDouble(webDriver.findElement
+                (By.xpath(".//ul[@class='woo-entry-inner clr']/li[@class='inner']/span")
+                ).getText().substring(0,6)));
+    }
+}
+

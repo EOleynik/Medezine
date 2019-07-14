@@ -5,8 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.HomePage;
-import pages.MyAccountPage;
+import pages.*;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -15,6 +14,9 @@ public class ParentTest {
     WebDriver webDriver;
     protected HomePage homePage;
     protected MyAccountPage myAccountPage;
+    protected StorePage storePage;
+    protected BrandDefluPage brandDefluPage;
+    protected CartPage cartPage;
 
 
     @Before
@@ -29,6 +31,9 @@ public class ParentTest {
 
         homePage = new HomePage(webDriver);
         myAccountPage = new MyAccountPage(webDriver);
+        storePage = new StorePage(webDriver);
+        brandDefluPage = new BrandDefluPage(webDriver);
+        cartPage = new CartPage(webDriver);
     }
 
     @After
@@ -38,6 +43,18 @@ public class ParentTest {
 
     public void checkExpectedResult(String message, boolean expectedResult, boolean actualResult){
         Assert.assertEquals(message,expectedResult,actualResult);
+    }
+
+    public void checkExpectedResult(String message, String expectedResult, String actualResult){
+        Assert.assertEquals(message,expectedResult,actualResult);
+    }
+
+    public void checkExpectedResult(String message,Double expectedResult,Double actualResult){
+        Assert.assertEquals(message,expectedResult,actualResult);
+    }
+
+    public void checkExpectedResult (String message, boolean getPrice){
+        Assert.assertTrue(message, getPrice);
     }
 
 }

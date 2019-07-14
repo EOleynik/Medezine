@@ -7,8 +7,7 @@ public class LoginTest extends ParentTest {
 
     @Test
     public void validLogin(){
-    homePage.openPage();
-    homePage.checkCurrentUrl();
+    homePage.openPageWithCheckUrl();
     homePage.clickOnLinkMoyAccaunt();
 
     myAccountPage.checkCurrentUrl();
