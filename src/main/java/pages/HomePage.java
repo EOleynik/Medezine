@@ -23,8 +23,6 @@ public class HomePage extends ParentPage{
     private Link katalog;
     @FindBy(xpath = "//ul[@id='menu-main-menu-2']/li[5]")
     private Link korzina;
-    @FindBy(xpath = ".//div[@class='wps_add_to_cart']")
-    private Button vKorziny;
     @FindBy(xpath = ".//li[@class='search-toggle-li']")
     private Link iconPoisk;
     @FindBy(xpath = ".//input[@id='s']")
@@ -48,10 +46,6 @@ public class HomePage extends ParentPage{
 
     public void clickOnLinkKorzına() {
         workWithOurElements.clickOnElement(korzina);
-    }
-
-    public void clickButtonVKorziny() {
-        workWithOurElements.clickOnElement(vKorziny);
     }
 
     public void clickOnIconPoisk() {

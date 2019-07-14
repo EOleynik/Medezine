@@ -28,7 +28,7 @@ public class AddProductToCart extends ParentTest {
         storePage.clickOnButtonVkorziny();
         storePage.clickOnLinkProsmotrKorzıny();
 
-        checkExpectedResult("",true,cartPage.isProductDisplayed());
+        checkExpectedResult("Product not added to cart",true,cartPage.isProductDisplayed());
     }
 
 

@@ -12,6 +12,6 @@ public class OpenCart extends ParentTest {
 
         cartPage.checkCurrentUrl();
 
-        checkExpectedResult("",true,cartPage.isNoticeDisplayed());
+        checkExpectedResult("Notice is not displayed",true,cartPage.isNoticeDisplayed());
     }
 }

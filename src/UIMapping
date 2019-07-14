@@ -1,0 +1,33 @@
+#HomePage
+HomePage.Logotupe = xpath(".//div[@id='site-logo-inner']")
+HomePage.LinkMyAccount = xpath(".//a[@href='/my-account/orders/' and @class='menu-link']")
+HomePage.LinkKatalog = xpath(".//li[@id='menu-item-3315']")
+HomePage.LinkKorzina = xpath("//ul[@id='menu-main-menu-2']/li[5]")
+HomePage.LinkIconPoisk = xpath(".//li[@class='search-toggle-li']")
+HomePage.LinkInputPoisk = xpath(".//input[@id='s']")
+
+#MyAccountPage
+MyAccountPage.Registration.Email.Input = xpath(".//input[@id='reg_email']")
+MyAccountPage.Registration.ButtonRegistraciya = xpath(".//button[@name='register']")
+MyAccountPage.Avtorization.ImyaPolzovatelya&Email.Input = xpath(".//input[@id='username']")
+MyAccountPage.Avtorization.Parol.Input = xpath(".//input[@id='password']")
+MyAccountPage.Avtorization.Button.Registraciya = xpath(".//button[@name='login']")
+MyAccountPage.UserInfo = xpath(".//div[@class='user-info']")
+
+#StorePage
+StorePage.DropDown.Brendy = xpath("//*[@id='pwb_dropdown_widget-2']")
+StorePage.Button.Vkorziny = xpath(".//button[@class='single_add_to_cart_button button alt']")
+StorePage.Link.ProsmotrKorziny = xpath(".//a[@class='added_to_cart wc-forward']")
+StorePage.Link.Filtr = xpath(".//a[@class='oceanwp-off-canvas-filter']")
+StorePage.CheckBox.Deflu = xpath(".//input[@value='deflu']")
+StorePage.Widget.FiltrPoTsene = xpath(".//h4[text()='Фильтр по цене']")
+StorePage.Input.Ot = xpath(".//input[@id='product-search-filter-min-price-0']")
+StorePage.Input.Do = xpath(".//input[@id='product-search-filter-max-price-0']")
+StorePage.Button.Primenit = xpath(".//button[@class='button']")
+
+#CartPage
+CartPage.Notice = xpath(".//p[@class='cart-empty']")
+CartPage.ProductDetoksil = xpath(".//a[contains(text(),'Детоксил')]")
+
+#BrandDefluPage
+BrandDefluPage.LogotypeDeflu = xpath(".//img[@src='https://medizine.eu/wp-content/uploads/Brands/deflu-min.jpg']")
