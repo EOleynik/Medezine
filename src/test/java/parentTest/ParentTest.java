@@ -53,8 +53,8 @@ public class ParentTest {
         Assert.assertEquals(message,expectedResult,actualResult);
     }
 
-    public void checkExpectedResult (String message, boolean getPrice){
-        Assert.assertTrue(message, getPrice);
+    public void checkExpectedResult (String message, boolean expectedResult) {
+        Assert.assertTrue(message, expectedResult);
     }
 
 }
