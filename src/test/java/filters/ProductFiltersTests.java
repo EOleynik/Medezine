@@ -1,6 +1,5 @@
 package filters;
 
-import org.junit.Assert;
 import org.junit.Test;
 import parentTest.ParentTest;
 
@@ -37,7 +36,7 @@ public class ProductFiltersTests extends ParentTest {
         storePage.clickOnButtonPrimenit();
 
        checkExpectedResult("Product of another brand","Дефлю",
-               storePage.getNameBrand());
+               storePage.checkBrand("Дефлю").split(" ")[0]);
        checkExpectedResult("Price of goods outside the specified range",storePage.checkPrice("100","120"));
     }
 
