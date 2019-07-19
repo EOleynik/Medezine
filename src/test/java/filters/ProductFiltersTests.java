@@ -36,8 +36,9 @@ public class ProductFiltersTests extends ParentTest {
         storePage.clickOnButtonPrimenit();
 
        checkExpectedResult("Product of another brand","Дефлю",
-               storePage.checkBrand("Дефлю").split(" ")[0]);
-       checkExpectedResult("Price of goods outside the specified range",storePage.checkPrice("100","120"));
+               storePage.checkBrand("Дефлю"));
+       checkExpectedResult("Price of goods outside the specified range",
+               storePage.checkPrice("100","120"));
     }
 
 
