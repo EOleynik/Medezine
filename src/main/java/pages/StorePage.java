@@ -71,19 +71,19 @@ public class StorePage extends ParentPage {
         workWithOurElements.clickOnElement(buttonPrimenit);
     }
 
-    public String getNameBrand() {
+    public String checkBrand(String nameBrand) {
         return (webDriver.findElement
-                (By.xpath(".//a[contains(text(),'Дефлю')]")
-                ).getText().substring(0,5));
+                (By.xpath(".//a[contains(text(),'" +nameBrand+ "')]")
+                ).getText().split(" ")[0]);
     }
 
     public boolean checkPrice( String value1, String value2) {
         if (Double.parseDouble(webDriver.findElement
                 (By.xpath(".//ul[@class='woo-entry-inner clr']/li[@class='inner']/span")
-                ).getText().substring(0, 6)) > Double.parseDouble(value1)) {
+                ).getText().split(" ")[0]) > Double.parseDouble(value1)) {
             if (Double.parseDouble(webDriver.findElement
                     (By.xpath(".//ul[@class='woo-entry-inner clr']/li[@class='inner']/span")
-                    ).getText().substring(0, 6)) < Double.parseDouble(value2)) {
+                    ).getText().split(" ")[0]) < Double.parseDouble(value2)) {
                 return true;
             }
         }return false;
