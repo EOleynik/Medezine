@@ -48,8 +48,9 @@ String nameBrand, value1, value2;
         storePage.clickOnButtonPrimenit();
 
         checkExpectedResult("Product of another brand",nameBrand,
-                storePage.checkBrand(nameBrand).split(" ")[0]);
-        checkExpectedResult("Price of goods outside the specified range",storePage.checkPrice(value1,value2));
+                storePage.checkBrand(nameBrand));
+        checkExpectedResult("Price of goods outside the specified range",
+                storePage.checkPrice(value1,value2));
     }
 
 }
