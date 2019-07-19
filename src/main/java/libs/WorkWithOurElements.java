@@ -15,8 +15,8 @@ public class WorkWithOurElements {
     public WorkWithOurElements(WebDriver webDriver) {
 
         this.webDriver = webDriver;
-        wait10 = new WebDriverWait(webDriver,2);
-        wait15 = new WebDriverWait(webDriver,5);
+        wait10 = new WebDriverWait(webDriver,10);
+        wait15 = new WebDriverWait(webDriver,15);
     }
 
     public void enterTextToInput (TypifiedElement element, String text){
@@ -54,7 +54,7 @@ public class WorkWithOurElements {
 
     public void clickOnElement(String locator) {
         try{
-            wait10.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+            wait15.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
             clickOnElement(webDriver.findElement(By.xpath(locator)));
             loger.info("Element was clicked");
         }catch (Exception e) {
@@ -66,6 +66,14 @@ public class WorkWithOurElements {
     public boolean isElementDisplayed(WebElement element) {
         try{
             return element.isDisplayed();
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    public boolean isElementDisplayed(String locator) {
+        try{
+            return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
         }catch (Exception e){
             return false;
         }
