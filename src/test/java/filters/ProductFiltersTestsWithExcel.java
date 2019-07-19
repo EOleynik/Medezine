@@ -1,8 +1,6 @@
 package filters;
 
-import libs.ExcelDriver;
 import libs.SpreadsheetData;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -12,7 +10,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
-import java.util.Map;
 
 import static pages.ParentPage.configProperties;
 
@@ -50,7 +47,8 @@ String nameBrand, value1, value2;
         storePage.enterTextInToInputDo(value2);
         storePage.clickOnButtonPrimenit();
 
-
+        checkExpectedResult("Product of another brand",nameBrand,
+                storePage.checkBrand(nameBrand).split(" ")[0]);
         checkExpectedResult("Price of goods outside the specified range",storePage.checkPrice(value1,value2));
     }
 
