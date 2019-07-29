@@ -40,9 +40,7 @@ String nameBrand, value1, value2;
         storePage.checkCurrentUrl();
         storePage.scrollDown(500);
         storePage.selectNameBrandFromDropDown(nameBrand);
-        storePage.scrollDown(50);
         storePage.clickOnElementToolbarFiltr();
-//      storePage.scrollByVisibleElementFıltrPoTsene();  //это я верну когда уберут рекламу (после 22.07)
         storePage.enterTextInToInputOt(value1);
         storePage.enterTextInToInputDo(value2);
         storePage.clickOnButtonPrimenit();
@@ -52,5 +50,7 @@ String nameBrand, value1, value2;
         checkExpectedResult("Price of goods outside the specified range",
                 storePage.checkPrice(value1,value2));
     }
+
+
 
 }
