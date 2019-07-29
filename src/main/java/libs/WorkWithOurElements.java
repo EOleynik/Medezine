@@ -96,9 +96,14 @@ public class WorkWithOurElements {
         }
     }
 
-    public void ScrollByPixel (Integer pix) {
+    public void scrollByPixel(Integer pix) {
         JavascriptExecutor js = (JavascriptExecutor) webDriver;
         js.executeScript("window.scrollBy (0," + pix + ")");
+    }
+
+    public void checkStatusToCheckbox (WebElement webElement) {
+        if (webElement.isSelected()) {
+        } else clickOnElement(webElement);
     }
 
 }
