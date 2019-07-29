@@ -6,7 +6,7 @@ import parentTest.ParentTest;
 public class ProductFiltersTests extends ParentTest {
 
     @Test
-    public void productFilterByBrand(){
+    public void sortingProductByBrand(){
         homePage.openPageWithCheckUrl();
         homePage.clickOnLinkKatalog();
 
@@ -21,16 +21,14 @@ public class ProductFiltersTests extends ParentTest {
     }
 
     @Test
-    public void productFilterByBrandAndPrice() {
+    public void sortingProductByBrandAndPrice() {
         homePage.openPageWithCheckUrl();
         homePage.clickOnLinkKatalog();
 
         storePage.checkCurrentUrl();
         storePage.scrollDown(500);
         storePage.selectNameBrandFromDropDown("Дефлю");
-        storePage.scrollDown(50);
         storePage.clickOnElementToolbarFiltr();
-//      storePage.scrollByVisibleElementFıltrPoTsene(); // это я верну когда уберут рекламу (после 22.07)
         storePage.enterTextInToInputOt("100");
         storePage.enterTextInToInputDo("120");
         storePage.clickOnButtonPrimenit();

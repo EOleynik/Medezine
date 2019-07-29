@@ -1,16 +1,10 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
-import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.Link;
-import ru.yandex.qatools.htmlelements.element.TextBlock;
-import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
-import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 public class HomePage extends ParentPage{
@@ -27,6 +21,8 @@ public class HomePage extends ParentPage{
     private Link iconPoisk;
     @FindBy(xpath = ".//input[@id='s']")
     private Link inputPoisk;
+    @FindBy(xpath = ".//a[@href='/store/']")
+    private WebElement perejtiVkatalog;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver,"");
@@ -74,9 +70,15 @@ public class HomePage extends ParentPage{
         }catch (Exception e) {
                 logger.error("Can not open HomePage");
                 Assert.fail("Can not open HomePage");
-            logger.error("Can not get url" + e);
-            Assert.fail("Can not get url");
         }
+    }
+
+    public void clickOnLinkPerejtiVkatalog() {
+        workWithOurElements.clickOnElement(perejtiVkatalog);
+    }
+
+    public void scrollDown(Integer pix) {
+        workWithOurElements.scrollByPixel(pix);
     }
 }
 
