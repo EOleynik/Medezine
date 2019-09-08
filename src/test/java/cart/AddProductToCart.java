@@ -10,6 +10,7 @@ public class AddProductToCart extends ParentTest {
         homePage.openPageWithCheckUrl();
         homePage.clickOnIconPoisk();
         homePage.enterTextInToInputPoisk("Детоксил");
+
         storePage.clickOnButtonVkorziny();
         storePage.clickOnLinkProsmotrKorzıny();
 
@@ -17,13 +18,11 @@ public class AddProductToCart extends ParentTest {
     }
 
     @Test
-
     public void addProductToEmptyCart() {
         homePage.openPageWithCheckUrl();
         homePage.checkStatusCart();
-        homePage.clickOnIconPoisk();  // мы остаемся на страничке Cart
+        homePage.clickOnIconPoisk();
         homePage.enterTextInToInputPoisk("Детоксил");
-
 
         storePage.clickOnButtonVkorziny();
         storePage.clickOnLinkProsmotrKorzıny();
@@ -31,5 +30,19 @@ public class AddProductToCart extends ParentTest {
         checkExpectedResult("Product not added to cart",true,cartPage.isProductDisplayed());
     }
 
+    @Test
+    public void addProductAfterLogin(){
+
+        myAccountPage.loginWithCred("avtotest@i.ua", "avtotest19");
+        myAccountPage.IsUserInfoPresent();
+
+        homePage.clickOnInputBystryiPoısk();
+        homePage.enterTextInToInputBystryiPoisk("Детоксил");
+
+        storePage.clickOnButtonVkorziny();
+
+        checkExpectedResult("Product doesn't added to cart",true,cartPage.isProductDisplayed());
+
+    }
 
 }
