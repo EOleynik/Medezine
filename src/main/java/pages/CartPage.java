@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class CartPage extends ParentPage {
 
-    @FindBy(xpath = ".//p[@class='cart-empty']")
+    @FindBy(xpath = ".//p[@class='cart-empty woocommerce-info']")
     private WebElement notice;
     @FindBy(xpath = ".//a[contains(text(),'Детоксил')]")
     private WebElement product;
@@ -53,4 +53,13 @@ public class CartPage extends ParentPage {
         }
     }
 
-}
+    public void cleanTheCart() {
+        if(isNoticeDisplayed()== false)
+        try {
+            deletUntilPresent();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }else
+        {logger.info("cart is empty");
+        }
+}}
