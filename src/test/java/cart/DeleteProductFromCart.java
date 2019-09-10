@@ -1,5 +1,6 @@
 package cart;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,13 +14,19 @@ public class DeleteProductFromCart extends ParentTest {
         homePage.openPageWithCheckUrl();
         homePage.clickOnIconPoisk();
         homePage.enterTextInToInputPoisk("Велмен");
+
         storePage.clickOnButtonVkorziny();
+
         homePage.clickOnIconPoisk();
         homePage.enterTextInToInputPoisk("Детоксил");
+
         storePage.clickOnButtonVkorziny();
+
         homePage.clickOnIconPoisk();
         homePage.enterTextInToInputPoisk("Велвумен");
+
         storePage.clickOnButtonVkorziny();
+
         homePage.clickOnLinkKorzına();
 
         cartPage.checkCurrentUrl();
@@ -30,13 +37,16 @@ public class DeleteProductFromCart extends ParentTest {
             true,cartPage.isNoticeDisplayed());
     }
 
+
     @Test
-    public void deleteAllProductsFromCart() throws InterruptedException {
-        homePage.openPageWithCheckUrl();
+    public void cleanTheCartAfterLogin() throws InterruptedException {
+        myAccountPage.loginWithCred("avtotest@i.ua", "avtotest19");
+        myAccountPage.IsUserInfoPresent();
+
         homePage.clickOnLinkKorzına();
 
         cartPage.checkCurrentUrl();
-        cartPage.deletUntilPresent();
+        cartPage.cleanTheCart();
 
         checkExpectedResult("Cart is not empty",
                 true,cartPage.isNoticeDisplayed());

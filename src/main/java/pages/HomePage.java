@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.element.Link;
+import ru.yandex.qatools.htmlelements.element.TextBlock;
 
 import java.util.regex.Pattern;
 
@@ -23,6 +24,8 @@ public class HomePage extends ParentPage{
     private Link inputPoisk;
     @FindBy(xpath = ".//a[@href='/store/']")
     private WebElement perejtiVkatalog;
+    @FindBy(xpath = ".//input[@id='product-search-field-0']")
+    private TextBlock inputBystryiPoisk;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver,"");
@@ -79,6 +82,13 @@ public class HomePage extends ParentPage{
 
     public void scrollDown(Integer pix) {
         workWithOurElements.scrollByPixel(pix);
+    }
+
+    public void clickOnInputBystryiPoısk() {workWithOurElements.clickOnElement(inputBystryiPoisk);
+    }
+
+    public void enterTextInToInputBystryiPoisk(String text) {
+        workWithOurElements.enterTextToInputWithReturn(inputBystryiPoisk,text);
     }
 }
 
